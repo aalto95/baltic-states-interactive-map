@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28b05e47-80e0-4aa1-8f18-ccf73213ac36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/DivisionOfMunicipalities.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DivisionOfMunicipalities.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Map.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Parishes.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Parishes.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SvgToObject/SvgToObject.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DivisionOfMunicipalities.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DivisionOfMunicipalities.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +63,7 @@
       <updated>1620016335777</updated>
       <workItem from="1620016336896" duration="28038000" />
       <workItem from="1620100785964" duration="756000" />
-      <workItem from="1620136409068" duration="10546000" />
+      <workItem from="1620136409068" duration="11941000" />
     </task>
     <servers />
   </component>

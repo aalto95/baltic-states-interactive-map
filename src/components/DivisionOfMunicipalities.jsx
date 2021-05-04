@@ -11,17 +11,26 @@ const DivisionOfMunicipalities = props => {
   }
 
   function generateMunicipalities() {
-    let generatedCounty = ""
-    let generatedMunicipalities = ""
+
+    let generatedData = ``
+
     for (let i = 0; i < Object.keys(municipalities).length; i++) {
 
-      generatedCounty += generateCounties(i)
+      let generatedCounty = ""
+      let generatedMunicipalities = ""
+
+      generatedCounty = generateCounties(i)
+      generatedData += generatedCounty
+      console.log((generatedCounty))
 
       for (let j = 0; j < Object.values(municipalities)[i].length; j++) {
         generatedMunicipalities += Object.values(municipalities)[i][j]
       }
+
+      generatedData += generatedMunicipalities
+
     }
-    return generatedMunicipalities
+    return generatedData
   }
 
   municipalityTable += generateMunicipalities()
