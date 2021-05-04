@@ -1,0 +1,17 @@
+.parishTable {
+    display: flex;
+    width: 700px;
+    height: 700px;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.countryParishes {
+    width: 150px;
+    margin: 5px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-bottom: 5px;
+}

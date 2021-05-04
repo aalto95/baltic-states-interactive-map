@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import Map from "./components/Map";
+import DivisionOfMunicipalities from "./components/DivisionOfMunicipalities";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = (props) => {
+    return (
+        <div>
+            <div id="acab">
+                <p>{props.state.data.title}</p>
+                <p>Area: {props.state.data.area} km<sup>2</sup></p>
+                <p>Population: {props.state.data.population}</p>
+            </div>
+            <div className="App">
+
+                <h1>Estonia</h1>
+                <div className="container">
+                    <Map
+                        state={props.state}
+                        regionData={props.regionData}
+                        regionDataOff={props.regionDataOff}
+                    />
+                    <DivisionOfMunicipalities
+                        state={props.state}
+                    />
+                </div>
+            </div>
+        </div>
+
   );
 }
 
