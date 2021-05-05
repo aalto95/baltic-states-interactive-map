@@ -1,15 +1,15 @@
-.parishTable {
+.municipalitiesTable {
     display: flex;
-    width: 700px;
-    height: 700px;
+    width: 50vw;
+    height: 80vh;
     flex-direction: column;
     flex-wrap: wrap;
+    margin: 50px;
 }
 
-.countryParishes {
-    width: 150px;
-    margin: 5px;
-    margin-bottom: 10px;
+.countyAndMunicipalities {
+    width: 120px;
+    margin: 10px;
 }
 
 h3 {

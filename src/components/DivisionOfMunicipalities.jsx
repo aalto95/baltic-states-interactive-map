@@ -1,46 +1,41 @@
-import React from "react";
 import s from "./DivisionOfMunicipalities.module.css";
 
 const DivisionOfMunicipalities = props => {
 
-  let municipalityTable = ""
   let municipalities = props.state.municipalities
 
-  function generateCounties(idx) {
-    return Object.keys(municipalities)[idx]
+  function generateCounty(i) {
+    return `<h3>` + Object.keys(municipalities)[i] + `</h3>`
   }
 
-  function generateMunicipalities() {
+  function generateMunicipalities(i, j) {
+    return `<li>` + Object.values(municipalities)[i][j] + `</li>`
+  }
 
-    let generatedData = ``
+  function generateTable() {
+
+    let generatedTable = ``
 
     for (let i = 0; i < Object.keys(municipalities).length; i++) {
 
-      let generatedCounty = ""
-      let generatedMunicipalities = ""
+      generatedTable += `<div class=${s.countyAndMunicipalities}>` + generateCounty(i)
 
-      generatedCounty = generateCounties(i)
-      generatedData += generatedCounty
-      console.log((generatedCounty))
+      let generatedMunicipalities = `<ul>`
 
       for (let j = 0; j < Object.values(municipalities)[i].length; j++) {
-        generatedMunicipalities += Object.values(municipalities)[i][j]
+        generatedMunicipalities += generateMunicipalities(i, j)
       }
 
-      generatedData += generatedMunicipalities
+      generatedMunicipalities += `</ul>`
+
+      generatedTable += generatedMunicipalities + `</div>`
 
     }
-    return generatedData
+    return {__html: generatedTable}
   }
 
-  municipalityTable += generateMunicipalities()
-
-  console.log(municipalityTable)
-
   return (
-      <div>
-        {municipalityTable}
-      </div>
+      <div className={s.municipalitiesTable} dangerouslySetInnerHTML={generateTable()} />
   );
 }
 
