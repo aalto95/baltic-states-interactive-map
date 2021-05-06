@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./redux/state";
 
+// eslint-disable-next-line no-unused-vars
 let rerenderEntireTree = state => {
     render(
         <React.StrictMode>

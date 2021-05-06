@@ -1,3 +1,4 @@
+import React from "react";
 import s from "./DivisionOfMunicipalities.module.css";
 
 const DivisionOfMunicipalities = props => {

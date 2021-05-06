@@ -1,9 +1,7 @@
-//import React, { useState } from 'react'
+import React from 'react'
 import './App.css';
-// eslint-disable-next-line no-unused-vars
-import Map from "./components/Map";
-// eslint-disable-next-line no-unused-vars
-import DivisionOfMunicipalities from "./components/DivisionOfMunicipalities";
+import Map from "./components/Map.jsx";
+import DivisionOfMunicipalities from "./components/DivisionOfMunicipalities.jsx";
 
 const App = (props) => {
     return (

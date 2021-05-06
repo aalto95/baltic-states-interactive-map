@@ -1,5 +1,4 @@
 import React from "react";
-import * as s from './../App.css'
 
 const Map = props => {
 
@@ -8,6 +7,7 @@ const Map = props => {
         let parsed = props.state.parsed
         let properties = parsed.children[0]
 
+        // eslint-disable-next-line react/jsx-key
         let paths = properties.children.map((path) => <path
             onMouseOver={props.regionData}
             onMouseLeave={props.regionDataOff}
