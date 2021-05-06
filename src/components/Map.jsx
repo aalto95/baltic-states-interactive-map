@@ -15,6 +15,7 @@ const Map = props => {
             title={path.properties.title}
             area={path.properties.area}
             population={path.properties.population}
+            capital={path.properties.capital}
             id={path.properties.id}
         />)
         return paths
