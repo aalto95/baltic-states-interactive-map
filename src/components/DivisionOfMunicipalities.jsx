@@ -5,33 +5,32 @@ const DivisionOfMunicipalities = props => {
 
   let municipalities = props.state.municipalities
 
-  function generateCounty(i) {
-    return `<h3>` + Object.keys(municipalities)[i] + `</h3>`
+  function generateCounty(county) {
+    return `<h3>` + county + `</h3>`
   }
 
-  function generateMunicipalities(i, j) {
-    return `<li>` + Object.values(municipalities)[i][j] + `</li>`
+  function generateMunicipalities(municipality) {
+    return `<li>` + municipality + `</li>`
   }
 
   function generateTable() {
+    let generatedTable = []
 
-    let generatedTable = ``
+    Object.keys(municipalities).map(county => {
 
-    for (let i = 0; i < Object.keys(municipalities).length; i++) {
-
-      generatedTable += `<div class=${s.countyAndMunicipalities}>` + generateCounty(i)
+      generatedTable += `<div class=${s.countyAndMunicipalities}>` + generateCounty(county)
 
       let generatedMunicipalities = `<ul>`
 
-      for (let j = 0; j < Object.values(municipalities)[i].length; j++) {
-        generatedMunicipalities += generateMunicipalities(i, j)
-      }
+      Object.values(municipalities[county]).map(municipality => {
+        generatedMunicipalities += generateMunicipalities(municipality)
+      })
 
       generatedMunicipalities += `</ul>`
 
       generatedTable += generatedMunicipalities + `</div>`
 
-    }
+    })
     return {__html: generatedTable}
   }
 
