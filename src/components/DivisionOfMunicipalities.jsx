@@ -4,38 +4,29 @@ import s from "./DivisionOfMunicipalities.module.css";
 const DivisionOfMunicipalities = props => {
 
   let municipalities = props.state.municipalities
+  let generatedTable = []
 
-  function generateCounty(county) {
-    return `<h3>` + county + `</h3>`
-  }
+  Object.keys(municipalities).map(county => {
 
-  function generateMunicipalities(municipality) {
-    return `<li>` + municipality + `</li>`
-  }
+    let generatedMunicipalities = []
+      generatedMunicipalities.push(Object.values(municipalities[county]).map(municipality => {
+        return <li key={municipality}>{municipality}</li>
+      }))
 
-  function generateTable() {
-    let generatedTable = []
-
-    Object.keys(municipalities).map(county => {
-
-      generatedTable += `<div class=${s.countyAndMunicipalities}>` + generateCounty(county)
-
-      let generatedMunicipalities = `<ul>`
-
-      Object.values(municipalities[county]).map(municipality => {
-        generatedMunicipalities += generateMunicipalities(municipality)
-      })
-
-      generatedMunicipalities += `</ul>`
-
-      generatedTable += generatedMunicipalities + `</div>`
-
-    })
-    return {__html: generatedTable}
-  }
+    generatedTable.push(
+      <div className={s.countyAndMunicipalities}>
+        <h3>{county}</h3>
+        <ul>
+          {generatedMunicipalities}
+        </ul>
+      </div>
+    )
+  })
 
   return (
-      <div className={s.municipalitiesTable} dangerouslySetInnerHTML={generateTable()} />
+    <div className={s.municipalitiesTable}>
+      {generatedTable}
+    </div>
   );
 }
 
