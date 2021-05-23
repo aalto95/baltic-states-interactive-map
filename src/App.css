@@ -18,12 +18,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
 }
 
-h1 {
-  margin: 20px;
-}
 
 li {
   list-style: none;
