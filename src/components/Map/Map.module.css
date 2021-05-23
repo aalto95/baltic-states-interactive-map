@@ -1,0 +1,12 @@
+.mapSection {
+  display: flex;
+  height: 50vh;
+  width: 50vw;
+  align-items: center;
+  margin: 10px;
+}
+.mapSection .mapData {
+  width: 20%;
+}
+
+/*# sourceMappingURL=Map.module.css.map */

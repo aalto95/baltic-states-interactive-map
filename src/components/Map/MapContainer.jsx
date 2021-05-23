@@ -1,8 +1,22 @@
 import React from "react";
 import Map from "./Map.jsx";
+import {connect} from "react-redux";
+import {changeRegionData, removeRegionData, setMap} from "../../redux/map-reducer";
 
-const MapContainer = () => {
-    return <Map />
+const MapContainer = (props) => {
+    return <Map {...props}/>
 }
 
-export default MapContainer;
+let mapStateToProps = (state) => {
+    return {
+        map: state.map,
+    }
+}
+
+let mapDispatchToProps = {
+    setMap,
+    changeRegionData,
+    removeRegionData
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (MapContainer);

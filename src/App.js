@@ -6,14 +6,8 @@ import MapContainer from "./components/Map/MapContainer.jsx";
 const App = () => {
     return (
         <div>
-            <div id="acab">
-                <p>Title</p>
-                <p>Area:  km<sup>2</sup></p>
-                <p>Population: </p>
-                <p>Capital: </p>
-            </div>
-            <h1>Estonia</h1>
             <div className="App">
+                <h1>Estonia</h1>
                 <div className="container">
                     <MapContainer />
                     <DivisionsContainer />
