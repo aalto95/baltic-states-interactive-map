@@ -10,6 +10,10 @@
     align-items: center;
   }
 
+  .map {
+    display: flex;
+  }
+
   @media screen and (min-width: 1024px) {
     .map {
       width: 800px;

@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Path from "../Path.jsx";
 import styles from "./Map.module.scss";
-import { regions } from "../../data.json";
 
 const Map = (props) => {
   const data = props.map.data;
+  const [currentCountry, setCurrentCountry] = useState("estonia");
+  const [map, setMap] = useState({});
+
+  useEffect(() => {
+    fetch(`data/${currentCountry}.json`)
+      .then((response) => response.json())
+      .then((data) => {
+        setMap(data);
+      });
+  }, [currentCountry]);
+
+  function changeCurrentCountry(event) {
+    setCurrentCountry(event.target.value);
+  }
 
   return (
     <section className={styles.mapSection}>
+      <select onChange={changeCurrentCountry} name="select">
+        <option value="estonia">Estonia</option>
+        <option value="latvia">Latvia</option>
+      </select>
       <div className={styles.mapContainer}>
-        <svg viewBox="-100 -200 800 800" className={styles.map}>
-          {regions.map((path) => (
+        <svg viewBox={map.viewBox} className={styles.map}>
+          {map.regions?.map((path) => (
             <Path
               onOver={props.changeRegionData}
               onLeave={props.removeRegionData}
