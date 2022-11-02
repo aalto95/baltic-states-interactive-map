@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import DivisionsContainer from "./components/Divisions/DivisionsContainer.jsx";
+
 import MapContainer from "./components/Map/MapContainer.jsx";
 
 const App = () => {
@@ -9,7 +9,6 @@ const App = () => {
       <div className="App">
         <div className="container">
           <MapContainer />
-          <DivisionsContainer />
         </div>
       </div>
     </div>

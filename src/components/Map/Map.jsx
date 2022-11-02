@@ -51,7 +51,7 @@ const Map = (props) => {
             <li>Population: {data.population}</li>
             <li>Capital: {data.capital}</li>
           </ul>
-          <img src={data.image} alt="region-flag" />
+          {data.image && <img src={data.image} alt="region-flag" />}
         </div>
       ) : (
         <div className={styles.regionInfo}>
