@@ -1,27 +1,23 @@
 import React from "react";
-import s from "./Divisions.module.css";
+import s from "./Divisions.module.scss";
 
 const Divisions = (props) => {
-    console.log(props.divisions)
-
-    return (
-        <div className={s.municipalitiesTable}>
-            {
-                props.divisions.map((division) => {
-                    return <>
-                        <h3 key={division.id}>{division.name}</h3>
-                        <ul>
-                          {division.parishes.map((parish) => {
-                            return <>
-                              <li>{parish}</li>
-                            </>
-                          })}
-                        </ul>
-                    </>
-                })
-            }
-        </div>
-    );
-}
+  return (
+    <div className={s.municipalitiesTable}>
+      {props.divisions.map((division) => {
+        return (
+          <div key={division.id}>
+            <h3>{division.name}</h3>
+            <ul>
+              {division.parishes.map((parish) => {
+                return <li key={parish}>{parish}</li>;
+              })}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default Divisions;

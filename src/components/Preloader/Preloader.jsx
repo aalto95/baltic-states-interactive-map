@@ -1,8 +1,8 @@
 import React from "react";
-import styles from './Preloader.module.css'
+import styles from "./Preloader.module.scss";
 
 const Preloader = () => {
-    return <div className={styles.ldsDualRing}></div>
-}
+  return <div className={styles.ldsDualRing}></div>;
+};
 
-export default Preloader
+export default Preloader;
