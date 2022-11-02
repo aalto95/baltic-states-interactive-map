@@ -6,7 +6,7 @@ const Divisions = (props) => {
     <div className={s.municipalitiesTable}>
       {props.divisions.map((division) => {
         return (
-          <div key={division.id}>
+          <div className={s.countyAndMunicipalities} key={division.id}>
             <h3>{division.name}</h3>
             <ul>
               {division.parishes.map((parish) => {

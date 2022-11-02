@@ -1,9 +1,33 @@
 .mapSection {
   display: flex;
-  height: 50vh;
-  width: 50vw;
+  flex-direction: column;
   align-items: center;
-  .mapData {
-    width: 20%;
+
+  .mapContainer {
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .map {
+      width: 800px;
+      height: 600px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .map {
+      width: 600px;
+      height: 400px;
+    }
+  }
+
+  .regionInfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 150px;
   }
 }

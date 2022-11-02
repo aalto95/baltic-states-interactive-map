@@ -1,45 +1,46 @@
 import React from "react";
+import Path from "../Path.jsx";
 import styles from "./Map.module.scss";
+import { regions } from "../../data.json";
 
 const Map = (props) => {
-  let data = props.map.data;
-  const generatePaths = () => {
-    let parsed = props.map.parsed;
-    let properties = parsed.children[0];
-
-    let paths = properties.children.map((path) => (
-      <path
-        onMouseOver={props.changeRegionData}
-        onMouseLeave={props.removeRegionData}
-        key={path.properties.id}
-        d={path.properties.d}
-        title={path.properties.title}
-        area={path.properties.area}
-        population={path.properties.population}
-        capital={path.properties.capital}
-        image={path.properties.image}
-        id={path.properties.id}
-      />
-    ));
-    return paths;
-  };
+  const data = props.map.data;
 
   return (
     <section className={styles.mapSection}>
-      <svg width="650" height="400">
-        {generatePaths()}
-      </svg>
-      <div className={styles.mapData}>
-        {data.title && (
-          <>
-            <p>{data.title}</p>
-            <p>Area: {data.area}km^2</p>
-            <p>Population: {data.population}</p>
-            <p>Capital: {data.capital}</p>
-            <img src={data.image} alt="" />
-          </>
-        )}
+      <div className={styles.mapContainer}>
+        <svg viewBox="-100 -200 800 800" className={styles.map}>
+          {regions.map((path) => (
+            <Path
+              onOver={props.changeRegionData}
+              onLeave={props.removeRegionData}
+              key={path.id}
+              d={path.d}
+              title={path.title}
+              area={path.area}
+              population={path.population}
+              capital={path.capital}
+              image={path.image}
+              id={path.id}
+            />
+          ))}
+        </svg>
       </div>
+      {data.title ? (
+        <div className={styles.regionInfo}>
+          <ul>
+            <li>{data.title}</li>
+            <li>Area: {data.area}km^2</li>
+            <li>Population: {data.population}</li>
+            <li>Capital: {data.capital}</li>
+          </ul>
+          <img src={data.image} alt="region-flag" />
+        </div>
+      ) : (
+        <div className={styles.regionInfo}>
+          <h1>No region is hovered</h1>
+        </div>
+      )}
     </section>
   );
 };

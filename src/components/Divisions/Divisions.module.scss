@@ -1,17 +1,17 @@
 .municipalitiesTable {
-    display: flex;
-    width: 50vw;
-    height: 80vh;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin: 50px;
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  width: 95%;
+  flex-wrap: wrap;
 }
 
 .countyAndMunicipalities {
-    width: 120px;
-    margin: 10px;
+  width: 120px;
+  margin: 10px;
+  text-align: center;
 }
 
 h3 {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }

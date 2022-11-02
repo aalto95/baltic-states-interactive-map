@@ -1,13 +1,12 @@
-import {combineReducers, createStore} from "redux";
+import { combineReducers, createStore } from "redux";
 import divisionsReducer from "./divisions-reducer";
 import mapReducer from "./map-reducer";
 
 let reducers = combineReducers({
-    divisionTable: divisionsReducer,
-    map: mapReducer
-})
+  divisionTable: divisionsReducer,
+  map: mapReducer,
+});
 
-let store = createStore(reducers)
-window.store = store
+let store = createStore(reducers);
 
-export default store
+export default store;
