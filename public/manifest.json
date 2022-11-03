@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Baltic States Map",
+  "name": "Interactive map of the baltic states with regions",
   "icons": [
     {
       "src": "favicon.ico",

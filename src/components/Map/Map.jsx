@@ -21,9 +21,14 @@ const Map = (props) => {
 
   return (
     <section className={styles.mapSection}>
-      <select onChange={changeCurrentCountry} name="select">
-        <option value="estonia">Estonia</option>
-        <option value="latvia">Latvia</option>
+      <select
+        className={styles.countrySelect}
+        onChange={changeCurrentCountry}
+        name="select"
+      >
+        <option value="estonia">🇪🇪 Estonia</option>
+        <option value="latvia">🇱🇻 Latvia</option>
+        <option value="lithuania">🇱🇹 Lithuania</option>
       </select>
       <div className={styles.mapContainer}>
         <svg viewBox={map.viewBox} className={styles.map}>
@@ -46,10 +51,14 @@ const Map = (props) => {
       {data.title ? (
         <div className={styles.regionInfo}>
           <ul>
-            <li>{data.title}</li>
-            <li>Area: {data.area}km^2</li>
-            <li>Population: {data.population}</li>
-            <li>Capital: {data.capital}</li>
+            {data.title && <li>{data.title}</li>}
+            {data.area && (
+              <li>
+                Area: {data.area} km<sup>2</sup>
+              </li>
+            )}
+            {data.population && <li>Population: {data.population}</li>}
+            {data.capital && <li>Capital: {data.capital}</li>}
           </ul>
           {data.image && <img src={data.image} alt="region-flag" />}
         </div>
