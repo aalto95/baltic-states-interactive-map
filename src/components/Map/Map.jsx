@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Path from "../Path.jsx";
 import styles from "./Map.module.scss";
+import Preloader from "../Preloader/Preloader.jsx";
 
 const Map = (props) => {
   const data = props.map.data;
   const [currentCountry, setCurrentCountry] = useState("estonia");
   const [map, setMap] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`data/${currentCountry}.json`)
       .then((response) => response.json())
       .then((data) => {
         setMap(data);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, [currentCountry]);
 
@@ -22,31 +28,38 @@ const Map = (props) => {
   return (
     <section className={styles.mapSection}>
       <select
-        className={styles.countrySelect}
         onChange={changeCurrentCountry}
+        className={styles.countrySelect}
         name="select"
+        disabled={isLoading ? true : false}
       >
         <option value="estonia">🇪🇪 Estonia</option>
         <option value="latvia">🇱🇻 Latvia</option>
         <option value="lithuania">🇱🇹 Lithuania</option>
       </select>
       <div className={styles.mapContainer}>
-        <svg viewBox={map.viewBox} className={styles.map}>
-          {map.regions?.map((path) => (
-            <Path
-              onOver={props.changeRegionData}
-              onLeave={props.removeRegionData}
-              key={path.id}
-              d={path.d}
-              title={path.title}
-              area={path.area}
-              population={path.population}
-              capital={path.capital}
-              image={path.image}
-              id={path.id}
-            />
-          ))}
-        </svg>
+        <div className={styles.map}>
+          {isLoading ? (
+            <Preloader />
+          ) : (
+            <svg viewBox={map.viewBox} className={styles.svg}>
+              {map.regions?.map((path) => (
+                <Path
+                  onOver={props.changeRegionData}
+                  onLeave={props.removeRegionData}
+                  key={path.id}
+                  d={path.d}
+                  title={path.title}
+                  area={path.area}
+                  population={path.population}
+                  capital={path.capital}
+                  image={path.image}
+                  id={path.id}
+                />
+              ))}
+            </svg>
+          )}
+        </div>
       </div>
       {data.title ? (
         <div className={styles.regionInfo}>

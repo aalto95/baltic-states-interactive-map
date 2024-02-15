@@ -12,13 +12,13 @@
 
   .map {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
   .countrySelect {
-    border: none;
-    padding: 10px;
     margin-top: 20px;
-    border-radius: 20px;
   }
 
   @media screen and (min-width: 1024px) {
