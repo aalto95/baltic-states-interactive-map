@@ -2,10 +2,7 @@ import React from "react";
 import { IRegion } from "../interfaces/Region";
 import { useMapStore } from "../store/map.store";
 
-interface PathProps extends IRegion {
-  onOver: (regionInfo: Partial<IRegion>) => void;
-  onLeave: () => void;
-}
+interface PathProps extends IRegion {}
 
 const Path: React.FC<PathProps> = (props) => {
   const mapStore = useMapStore();
@@ -18,20 +15,12 @@ const Path: React.FC<PathProps> = (props) => {
       area: props.area,
       title: props.title,
     });
-
-    props.onOver({
-      population: props.population,
-      image: props.image,
-      capital: props.capital,
-      area: props.area,
-      title: props.title,
-    });
   }
 
   function onMouseLeave() {
     mapStore.unhoverRegion();
-    props.onLeave();
   }
+
   return (
     <path
       id={props.id}

@@ -1,13 +1,13 @@
-import "./App.css";
+import "./App.scss";
 
-import MapContainer from "./components/Map/MapContainer.jsx";
+import Map from "./components/Map/Map";
 
 const App: React.FC = () => {
   return (
     <div>
       <div className="App">
         <div className="container">
-          <MapContainer />
+          <Map />
         </div>
       </div>
     </div>

@@ -5,14 +5,7 @@ import Preloader from "../Preloader/Preloader";
 import { IMap } from "../../interfaces/Map";
 import { useMapStore } from "../../store/map.store.js";
 
-interface MapProps {
-  map: any;
-  regions: any;
-  changeRegionData: any;
-  removeRegionData: any;
-}
-
-const Map: React.FC<MapProps> = (props) => {
+const Map: React.FC = () => {
   const mapStore = useMapStore();
   const hoveredRegion = mapStore.hoveredRegion;
   const [currentCountry, setCurrentCountry] = useState("estonia");
@@ -55,8 +48,6 @@ const Map: React.FC<MapProps> = (props) => {
             <svg viewBox={map?.viewBox} className={styles.svg}>
               {map?.regions?.map((path: any) => (
                 <Path
-                  onOver={props.changeRegionData}
-                  onLeave={props.removeRegionData}
                   key={path.id}
                   d={path.d}
                   title={path.title}
