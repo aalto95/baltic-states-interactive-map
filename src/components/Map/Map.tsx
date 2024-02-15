@@ -1,12 +1,20 @@
-import React, { useState, useEffect } from "react";
-import Path from "../Path.jsx";
+import { useState, useEffect, ChangeEvent } from "react";
+import Path from "../Path.js";
 import styles from "./Map.module.scss";
-import Preloader from "../Preloader/Preloader.jsx";
+import Preloader from "../Preloader/Preloader";
+import { IMap } from "../../interfaces/Map";
 
-const Map = (props) => {
-  const data = props.map.data;
+interface MapProps {
+  map: any;
+  regions: any;
+  changeRegionData: any;
+  removeRegionData: any;
+}
+
+const Map: React.FC<MapProps> = (props) => {
+  const hoveredRegion = props.map.data;
   const [currentCountry, setCurrentCountry] = useState("estonia");
-  const [map, setMap] = useState({});
+  const [map, setMap] = useState<IMap>();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -21,8 +29,8 @@ const Map = (props) => {
       });
   }, [currentCountry]);
 
-  function changeCurrentCountry(event) {
-    setCurrentCountry(event.target.value);
+  function changeCurrentCountry(event: ChangeEvent) {
+    setCurrentCountry((event.target as HTMLSelectElement).value);
   }
 
   return (
@@ -42,8 +50,8 @@ const Map = (props) => {
           {isLoading ? (
             <Preloader />
           ) : (
-            <svg viewBox={map.viewBox} className={styles.svg}>
-              {map.regions?.map((path) => (
+            <svg viewBox={map?.viewBox} className={styles.svg}>
+              {map?.regions?.map((path: any) => (
                 <Path
                   onOver={props.changeRegionData}
                   onLeave={props.removeRegionData}
@@ -61,19 +69,23 @@ const Map = (props) => {
           )}
         </div>
       </div>
-      {data.title ? (
+      {hoveredRegion.title ? (
         <div className={styles.regionInfo}>
           <ul>
-            {data.title && <li>{data.title}</li>}
-            {data.area && (
+            {hoveredRegion.title && <li>{hoveredRegion.title}</li>}
+            {hoveredRegion.area && (
               <li>
-                Area: {data.area} km<sup>2</sup>
+                Area: {hoveredRegion.area} km<sup>2</sup>
               </li>
             )}
-            {data.population && <li>Population: {data.population}</li>}
-            {data.capital && <li>Capital: {data.capital}</li>}
+            {hoveredRegion.population && (
+              <li>Population: {hoveredRegion.population}</li>
+            )}
+            {hoveredRegion.capital && <li>Capital: {hoveredRegion.capital}</li>}
           </ul>
-          {data.image && <img src={data.image} alt="region-flag" />}
+          {hoveredRegion.image && (
+            <img src={hoveredRegion.image} alt="region-flag" />
+          )}
         </div>
       ) : (
         <div className={styles.regionInfo}>

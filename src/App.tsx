@@ -1,9 +1,8 @@
-import React from "react";
 import "./App.css";
 
 import MapContainer from "./components/Map/MapContainer.jsx";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div>
       <div className="App">

@@ -1,17 +1,16 @@
-import React from "react";
-import Map from "./Map.jsx";
+import Map from "./Map.js";
 import { connect } from "react-redux";
 import {
   changeRegionData,
   removeRegionData,
   setMap,
-} from "../../redux/map-reducer";
+} from "../../redux/map-reducer.js";
 
-const MapContainer = (props) => {
+const MapContainer = (props: any) => {
   return <Map {...props} />;
 };
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: any) => {
   return {
     map: state.map,
   };
