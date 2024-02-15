@@ -3,6 +3,7 @@ import Path from "../Path.js";
 import styles from "./Map.module.scss";
 import Preloader from "../Preloader/Preloader";
 import { IMap } from "../../interfaces/Map";
+import { useMapStore } from "../../store/map.store.js";
 
 interface MapProps {
   map: any;
@@ -12,7 +13,8 @@ interface MapProps {
 }
 
 const Map: React.FC<MapProps> = (props) => {
-  const hoveredRegion = props.map.data;
+  const mapStore = useMapStore();
+  const hoveredRegion = mapStore.hoveredRegion;
   const [currentCountry, setCurrentCountry] = useState("estonia");
   const [map, setMap] = useState<IMap>();
   const [isLoading, setIsLoading] = useState(false);
@@ -69,7 +71,7 @@ const Map: React.FC<MapProps> = (props) => {
           )}
         </div>
       </div>
-      {hoveredRegion.title ? (
+      {hoveredRegion ? (
         <div className={styles.regionInfo}>
           <ul>
             {hoveredRegion.title && <li>{hoveredRegion.title}</li>}
